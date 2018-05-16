@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http2Server } from 'http2';
+import { Http } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ export class YoutubeService {
 
   APIURL:string = "";
 
-  constructor(private http:Http2Server) { }
+  constructor(private http:Http) { }
 
   //Get Data
   fetchData(){
-    return this.http.get(APIURL)
+    this.http.get('API_PATH_HERE');
   }
 
 }

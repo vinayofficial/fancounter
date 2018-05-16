@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { YoutubeService } from '../app/_services/youtube.service';
 
 @Component({
@@ -10,18 +10,23 @@ import { YoutubeService } from '../app/_services/youtube.service';
 })
 export class AppComponent {
   channelData:any;
+  
+  //create form instance
   youtubeForm = new FormGroup({
     channelString: new FormControl('',Validators.required)
   })
+
+  
+  constructor(private youtubeService:YoutubeService, fb:FormBuilder){
+
+  }
   
   showChannelData(){
     let data = this.youtubeForm.get('channelString').value;
     this.youtubeService.fetchData().subscribe(response => {
-      this.channelData = response.json(); 
+      this.channelData = response.json();
+      console.log(this.channelData);
     })
   }
 
-  constructor(private youtubeService:YoutubeService){
-
-  }
 }
