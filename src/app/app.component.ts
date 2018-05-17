@@ -9,24 +9,10 @@ import { YoutubeService } from '../app/_services/youtube.service';
   providers: [YoutubeService]
 })
 export class AppComponent {
-  channelData:any;
-  
-  //create form instance
-  youtubeForm = new FormGroup({
-    channelString: new FormControl('',Validators.required)
-  })
 
-  
-  constructor(private youtubeService:YoutubeService, fb:FormBuilder){
+  constructor(){
 
-  }
-  
-  showChannelData(){
-    let data = this.youtubeForm.get('channelString').value;
-    this.youtubeService.fetchData().subscribe(response => {
-      this.channelData = response.json();
-      console.log(this.channelData);
-    })
   }
 
 }
+

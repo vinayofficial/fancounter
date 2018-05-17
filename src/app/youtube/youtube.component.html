@@ -1,3 +1,18 @@
-<p>
-  youtube works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>Find a Channel</h2>
+      <form [formGroup]="youtubeForm" (ngSubmit)="showChannelData()">
+        <div class="form-group">
+            <div class="col-md-8">
+                <input  type="text" 
+                        class="form-control"
+                        formControlName="channelString" 
+                        placeholder="Channel Name Here">
+            </div>
+            <button class="btn btn-primary" [disabled]="youtubeForm.invalid">Get Data</button>      
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

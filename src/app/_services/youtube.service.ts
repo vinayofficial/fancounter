@@ -7,13 +7,13 @@ import { Http } from '@angular/http';
 
 export class YoutubeService {
 
-  APIURL:string = "";
+  APIURL:string = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM&forUsername=vishAcademy&part=snippet,id&order=date&maxResults=20";
 
-  constructor(private http:Http) { }
+  constructor(private _http: Http) { }
 
   //Get Data
   fetchData(){
-    this.http.get('API_PATH_HERE');
+    return this._http.get(this.APIURL);
   }
 
 }
