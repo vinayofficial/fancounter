@@ -12,6 +12,7 @@ import {YoutubeService} from '../_services/youtube.service'
 export class YoutubeComponent implements OnInit {
 
   channelData:any;
+  test:any;
   
   //create form instance
   youtubeForm = new FormGroup({
