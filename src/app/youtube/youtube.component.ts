@@ -21,8 +21,10 @@ export class YoutubeComponent implements OnInit {
 
   //show data 
   showChannelData(){
-    let data = this.youtubeForm.get('channelString').value;
-    console.log(data);
+    this.youtubeService.fetchData().subscribe(response => {
+      this.channelData = response.json();
+      console.log(this.channelData.items);
+    })
   }
   ngOnInit() {
   }
