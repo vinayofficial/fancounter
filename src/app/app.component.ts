@@ -10,9 +10,7 @@ import { YoutubeService } from '../app/_services/youtube.service';
 })
 export class AppComponent {
 
-  constructor(){
-
+  constructor() {
   }
-
 }
 

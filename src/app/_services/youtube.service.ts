@@ -11,9 +11,8 @@ export class YoutubeService {
 
   constructor(private _http: Http) { }
 
-  //Get Data
-  fetchData(){
+  // GetData
+  fetchData() {
     return this._http.get(this.APIURL);
   }
-  
 }
