@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    YoutubeComponent
+    YoutubeComponent,
+    NavbarComponent
   ],
   imports: [
     HttpModule,
