@@ -1,11 +1,24 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Fancounter</a>
+      <a class="navbar-brand" routerLink="home">Fancounter</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="#"> <i class="fa fa-home"></i> Home</a></li>
-      <li><a href="#"> <i class="fa fa-user"></i> Your Account</a></li>
+      <li routerLinkActive="active">
+          <a routerLink="home"> 
+              <i class="fa fa-home"></i> Home
+          </a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="video"> 
+                <i class="fa fa-home"></i> Watch
+            </a>
+          </li>
+      <li>
+          <a routerLink="profile">
+              <i class="fa fa-user"></i> Your Account
+          </a>
+        </li>
     </ul>
   </div>
 </nav>

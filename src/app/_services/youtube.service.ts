@@ -13,5 +13,11 @@ export class YoutubeService {
     let url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q="+KEYWORD+"&type=video&key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM"
     return this._http.get(url);
   }
-  
 }
+/*
+10PM sleep
+4am wake up.
+4.30am start recordings.
+10am get ready for office  //5.5hr
+7.30pm leave from office
+*/
