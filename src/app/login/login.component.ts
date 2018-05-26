@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
       console.log(this.localData.email +" && "+ useremail +" && "+ this.localData.paswword +" == "+userpassword);
       if(this.localData.email == useremail && this.localData.paswword == userpassword){
         this.msg="login Successfull";
+      localStorage.setItem("currentUser",this.localData.name);
+
       }
       else{
         this.msg="Wrong credential";
