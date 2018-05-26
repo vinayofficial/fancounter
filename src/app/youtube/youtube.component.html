@@ -18,11 +18,11 @@
     <div class="clearfix"></div>
     <hr>
 
-    <ul class="list list-inline">
-      <li *ngFor="let video of videoResults">
-        <img src="{{video.snippet.thumbnails.medium.url}}">
-      </li>
-    </ul>
-
+      <div class="col-sm-3" *ngFor="let video of videoResults">
+        <a [routerLink]="['/video']" [queryParams]="{v: video.id.videoId }" > 
+          <img src="{{video.snippet.thumbnails.medium.url}}" class="img-responsive">
+          </a>
+          <h4>{{video.snippet.title}}</h4>
+        </div>
   </div>
 </div>

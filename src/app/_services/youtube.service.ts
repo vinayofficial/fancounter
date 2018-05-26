@@ -10,8 +10,8 @@ export class YoutubeService {
 
   //Get Data
   fetchData(KEYWORD){
+    // let url ="https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&regionCode=IN&maxResults=15&key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM"
     let url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q="+KEYWORD+"&type=video&key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM"
     return this._http.get(url);
   }
-  
 }

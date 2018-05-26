@@ -23,19 +23,36 @@ export class YoutubeComponent implements OnInit {
   //show data 
   showvideoResults(){
     let KEYWORD = this.youtubeForm.get("channelString").value;
-    this.youtubeService.fetchData(KEYWORD).subscribe(response => {
+    this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
       this.videoResults = response.json();
       this.videoResults = this.videoResults.items
       console.log(this.videoResults);
-    },error => {
+    },(error) => {
       console.log(error.status)
       this.requestStatus = error.status;
       if(this.requestStatus === 0){
         this.msg = "Your Internet is Not Working.";
       }
-    },)
+    }, () => {
+        this.msg = "Here is your search result:";
+    })
   }
+
   ngOnInit() {
+    let KEYWORD = this.youtubeForm.get("channelString").value;
+    this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
+      this.videoResults = response.json();
+      this.videoResults = this.videoResults.items
+      console.log(this.videoResults);
+    },(error) => {
+      console.log(error.status)
+      this.requestStatus = error.status;
+      if(this.requestStatus === 0){
+        this.msg = "Your Internet is Not Working.";
+      }
+    }, () => {
+        this.msg = "Here is your search result:";
+    })
   }
 
 }
