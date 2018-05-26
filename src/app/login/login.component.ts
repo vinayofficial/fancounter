@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
       if(this.localData.email == useremail && this.localData.paswword == userpassword){
         this.msg="login Successfull";
       localStorage.setItem("currentUser",this.localData.name);
+      
 
       }
       else{
