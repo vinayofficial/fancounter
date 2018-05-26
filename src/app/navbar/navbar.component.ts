@@ -24,17 +24,15 @@ export class NavbarComponent implements OnInit {
   }
   
   ngOnInit() {
-   this.loginUser = localStorage.getItem("currentUser");
-   if(this.loginUser.length > 0){
-     this.checkLogin=true;
-     console.log("condition true");
-   }
-   else{
-     console.log("condition false");
-   }
-  // console.log(this.loginUser.length)
 
-
+    if(localStorage.getItem("currentUser")){
+        this.loginUser = localStorage.getItem("currentUser");
+        this.checkLogin=true;
+        console.log(this.loginUser+" condition true");
+    }
+    else {
+        console.log("condition false");
+    }
   }
 
   searchForm = new FormGroup({

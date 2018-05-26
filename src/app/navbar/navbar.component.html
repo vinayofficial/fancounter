@@ -19,8 +19,7 @@
             <a routerLink="home"> 
                 <i class="fa fa-home"></i> Home
             </a>
-<<<<<<< HEAD
-            </li>
+             </li>
             <li routerLinkActive="active">
                 <a routerLink="video"> 
                     <i class="fa fa-home"></i> Watch
@@ -31,20 +30,11 @@
                     <i class="fa fa-user"></i> Login
                 </a>
             </li>
-        </ul>
-    </div>
-=======
-          </li>
       <li routerLinkActive="active" *ngIf="!checkLogin"> 
           <a routerLink="profile">
               <i class="fa fa-user"></i> login
           </a>
         </li>
-        <!-- <li routerLinkActive="active" *ngIf="checkLogin">
-                <a routerLink="login"(click)="removekey()" >
-                    <i class="fa fa-user"></i> {{loginUser}}
-                </a>
-              </li> -->
               <li class="dropdown" routerLinkActive="active" *ngIf="checkLogin">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i class="fa fa-user"></i> {{loginUser}}
                 <span class="caret"></span></a>
@@ -55,6 +45,6 @@
               </li>
         
     </ul>
->>>>>>> 361d8e9ea0b65ffc1aee6fca57020f1198f48f74
   </div>
+    </div>
 </nav>
