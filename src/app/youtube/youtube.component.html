@@ -19,7 +19,7 @@
     <hr>
 
       <div class="col-sm-3" *ngFor="let video of videoResults">
-        <a [routerLink]="['/video',video.id.videoId]"> 
+        <a [routerLink]="['/video']" [queryParams]="{v: video.id.videoId }" > 
           <img src="{{video.snippet.thumbnails.medium.url}}" class="img-responsive">
           </a>
           <h4>{{video.snippet.title}}</h4>

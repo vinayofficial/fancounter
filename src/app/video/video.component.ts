@@ -13,9 +13,11 @@ export class VideoComponent implements OnInit {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe( param => {
+
+    this.route.queryParamMap.subscribe( param => {
       console.log(param);
-      this.videoid = param.get('videoid');
+      this.videoid = param.get('v');
+      localStorage.setItem('videoid',this.videoid);
     })
   }
 

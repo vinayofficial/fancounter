@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
       if(this.localData.email == useremail && this.localData.paswword == userpassword){
         localStorage.setItem('currentUser',this.localData.name);
         this.msg="login Successfull";
+      localStorage.setItem("currentUser",this.localData.name);
+
       }
       else{
         this.msg="Wrong credential";
