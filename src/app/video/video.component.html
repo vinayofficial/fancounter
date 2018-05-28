@@ -2,3 +2,10 @@
   <a href="https://www.youtube.com/watch?v={{videoid}}">Watch that video now.</a>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videoid}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </p>
+
+<div class="col-sm-3" *ngFor="let video of videoResults">
+    <a [routerLink]="['/video',video.id.videoId]"> 
+      <img src="{{video.snippet.thumbnails.medium.url}}" class="img-responsive">
+      </a>
+      <h4>{{video.snippet.title}}</h4>
+    </div>

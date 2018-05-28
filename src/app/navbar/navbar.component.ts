@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  localData:any;
+  storageKey:any;
 
+  constructor() { }
+  // removeItem(){
+  //   localStorage.removeItem(cur);
+  // }
   ngOnInit() {
+    // this.storageKey = 
+    // this.localData = localStorage.getItem(this.storageKey);
+    // console.log(this.localData)
   }
 
 }
