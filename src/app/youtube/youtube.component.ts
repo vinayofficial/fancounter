@@ -13,7 +13,9 @@ export class YoutubeComponent implements OnInit {
 
   channelData:any;
   test:any;
-  
+  videoResults:any;
+  requestStatus:number;
+  msg='';
   //create form instance
   youtubeForm = new FormGroup({
     channelString: new FormControl('',Validators.required)
@@ -21,13 +23,38 @@ export class YoutubeComponent implements OnInit {
   constructor(private youtubeService:YoutubeService) { }
 
   //show data 
-  showChannelData(){
-    this.youtubeService.fetchData().subscribe(response => {
-      this.channelData = response.json();
-      console.log(this.channelData.items);
+  showvideoResults(){
+    let KEYWORD = this.youtubeForm.get("channelString").value;
+    this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
+      this.videoResults = response.json();
+      this.videoResults = this.videoResults.items
+      console.log(this.videoResults);
+    },(error) => {
+      console.log(error.status)
+      this.requestStatus = error.status;
+      if(this.requestStatus === 0){
+        this.msg = "Your Internet is Not Working.";
+      }
+    }, () => {
+        this.msg = "Here is your search result:";
     })
   }
+
   ngOnInit() {
+    let KEYWORD = this.youtubeForm.get("channelString").value;
+    this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
+      this.videoResults = response.json();
+      this.videoResults = this.videoResults.items
+      console.log(this.videoResults);
+    },(error) => {
+      console.log(error.status)
+      this.requestStatus = error.status;
+      if(this.requestStatus === 0){
+        this.msg = "Your Internet is Not Working.";
+      }
+    }, () => {
+        this.msg = "Here is your search result:";
+    })
   }
 
 }
