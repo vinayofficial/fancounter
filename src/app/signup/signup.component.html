@@ -1,0 +1,41 @@
+<div class="signupBox">
+  <div class="signupHeader">
+      Sign Up
+  </div>
+  <div class="signupBody">
+        <form [formGroup]="signUp" (ngSubmit)="signupData()">
+                <div class="form-group">
+              <input placeholder="Full Name" class="form-control" type="text" formControlName="userName">
+          </div>
+              <div class="form-group">
+                  <input placeholder="Email Address" class="form-control" type="email" formControlName="userEmail">
+              </div>
+              <div class="form-group">
+                  <input placeholder="Password" class="form-control" type="password" formControlName="userPassword">
+              </div>
+              
+            
+              <div class="form-group">
+                  <button class="btn btn-login">Submit</button>
+              </div>
+              </form>
+              <!-- <form [formGroup]="videoChanel" (ngSubmit)="showChannelData()">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input  type="text" 
+                                    class="form-control"
+                                    formControlName="videoinput" 
+                                    placeholder="Channel Name Here">
+                        </div>
+                        <button class="btn btn-primary" [disabled]="videoChanel.invalid">Get Data</button>      
+                    </div>
+                  </form>
+                  -->
+         
+
+             <div class="form-group already-sign text-center">
+              <p>Already have an account?  <a routerLink="/login">Login now</a></p>
+              </div>
+
+  </div>
+</div>

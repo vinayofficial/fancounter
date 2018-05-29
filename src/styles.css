@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+.signupBox {
+    width: 100%;
+    max-width: 475px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 13px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+.signupHeader {
+	background: #003473;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 10px;
+}
+.signupBody {
+	padding: 20px 20px;
+}
+.social_btn a {
+	background: #da4a3c;
+	color: #fff;
+	padding: 10px 0;
+	display: block;
+	border-radius: 4px;
+	font-size: 15px;
+	/* font-weight: 600; */
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0px;
+	width: 100%;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+.social_btn a:hover{
+    color: #fff;
+}
+.social_btn a i {
+	float: left;
+	line-height: 22px;
+	text-align: center;
+	width: 40px;
+	position: relative;
+	z-index: 1;
+}
+.social_btn a:last-child {
+	margin: 0;
+	background-color: #35528d;
+}
+ .social_btn a::after {
+    content: "";
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.social_btn a:hover::after {
+  width: 100%;
+}
+.signupBody .form-control {
+	height: 40px;
+	box-shadow: none;
+	border: 1px solid #999999;
+	color: #999999;
+	font-size: 14px;
+}
+.btn.btn-login {
+	background: #09448d;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 500;
+	width: 100%;
+	padding: 8px;
+}
+.btn.btn-login:hover{
+    color: #fff;
+}
+.orBox {
+	background: #db4932;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	line-height: 40px;
+	position: relative;
+	/* margin-bottom: 15px; */
+	border-radius: 50%;
+	/* left: 0; */
+	margin: 0 auto 15px;
+	display: block;
+	z-index: 1;
+}
+.all_line{
+    position: relative;
+}
+.all_line::after {
+	background: #999999;
+	height: 1px;
+	width: 100%;
+	content: "";
+	position: absolute;
+	top: 20px;
+}
