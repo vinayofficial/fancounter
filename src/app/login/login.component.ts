@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit {
        let userpassword = this.signIn.get('userPassword').value;
        this.storageKey = useremail;
         let user = {
-        email:useremail,
-        password:userpassword
-      }
-
+           email:useremail,
+           password:userpassword
+        }
+        
       this.localData = localStorage.getItem(this.storageKey); // string
       this.localData=JSON.parse(this.localData);  
       console.log(this.localData);
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       if(this.localData.email == useremail && this.localData.paswword == userpassword){
         this.msg="login Successfull";
       localStorage.setItem("currentUser",this.localData.name);
-
       }
       else{
         this.msg="Wrong credential";
