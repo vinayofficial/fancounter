@@ -42,7 +42,7 @@ export class YoutubeComponent implements OnInit {
     let KEYWORD = this.youtubeForm.get("channelString").value;
     this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
       this.videoResults = response.json();
-      this.videoResults = this.videoResults.items
+      this.videoResults = this.videoResults.items;
       console.log(this.videoResults);
     },(error) => {
       console.log(error.status)

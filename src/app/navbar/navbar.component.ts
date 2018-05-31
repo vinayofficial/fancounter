@@ -10,21 +10,19 @@ import { YoutubeService } from '../_services/youtube.service';
 })
 export class NavbarComponent implements OnInit {
   public result:Array<any>;
-  
-  test:any="test";
-  constructor(private youtubeService:YoutubeService) { }
-
+  localData:any;
+  storageKey:any;
   loginUser:any;
   removeUser:any;
   checkLogin:boolean=false;
   
+  test:any="test";
+  constructor(private youtubeService:YoutubeService) { }
   removekey(){
     this.removeUser=localStorage.removeItem("currentUser")
     this.checkLogin=!this.checkLogin
   }
-  
   ngOnInit() {
-
     if(localStorage.getItem("currentUser")){
         this.loginUser = localStorage.getItem("currentUser");
         this.checkLogin=true;
