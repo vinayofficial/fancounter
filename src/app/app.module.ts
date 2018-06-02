@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthService } from './_auth/auth.service';
+import { LoginService } from './_services/login.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { AuthService } from './_auth/auth.service';
     RouterModule.forRoot([
       { path: '', redirectTo: 'signin', pathMatch: 'full' },
       {path: 'home', component: HomeComponent},
-      {path: 'youtube', component: YoutubeComponent},
+      {path: 'youtube', component: YoutubeComponent, canActivate:[AuthService]},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'video/:videoid/', component: VideoComponent},

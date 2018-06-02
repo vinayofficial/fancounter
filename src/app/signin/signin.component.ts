@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../_services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,12 +11,22 @@ import { LoginService } from '../_services/login.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private _loginService:LoginService) { }
+  constructor(private router:Router ,private _loginService:LoginService) {
 
+    if(localStorage.getItem('authKey')){
+      this.router.navigate(['youtube']);
+    }
+
+  }
+  checkpass:boolean;
+
+  //Login Form
   signIn = new FormGroup({
     username: new FormControl('',Validators.required),
     password: new FormControl('', Validators.required)
   });
+
+  //Login method
 
   doLogin(){
       let getUsername = this.signIn.get('username').value;
@@ -24,8 +35,10 @@ export class SigninComponent implements OnInit {
         username: getUsername,
         password: getPassword
       }
-      console.log('useranme: '+user.username+' password: '+user.password);
-      this._loginService.doLogin(user)
+
+      this.checkpass = this._loginService.checkLogin(user);
+      if(this.checkpass) this.router.navigate(['youtube']);
+      console.log('Invalid Credentials');
   }
 
   ngOnInit() {

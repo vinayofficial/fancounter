@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { YoutubeService } from '../_services/youtube.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,23 +13,18 @@ export class NavbarComponent implements OnInit {
   public result:Array<any>;
   
   test:any="test";
-  constructor(private youtubeService:YoutubeService) { }
+  constructor(private youtubeService:YoutubeService, private router:Router) { }
 
   loginUser:any;
   removeUser:any;
   checkLogin:boolean=false;
-  
-  removekey(){
-    this.removeUser=localStorage.removeItem("currentUser")
-    this.checkLogin=!this.checkLogin
-  }
-  
+
   ngOnInit() {
 
-    if(localStorage.getItem("currentUser")){
-        this.loginUser = localStorage.getItem("currentUser");
+    if(localStorage.getItem("authKey")){
+        this.loginUser = localStorage.getItem("username");
         this.checkLogin=true;
-        console.log(this.loginUser+" condition true");
+        console.log(this.loginUser+" condition is "+this.checkLogin);
     }
     else {
         console.log("condition false");
@@ -45,4 +41,10 @@ export class NavbarComponent implements OnInit {
       console.log(response.json())
     })
   }
+
+  logout(){
+    localStorage.removeItem('authKey');
+    this.router.navigate(['/signin'])
+  }
+
 }

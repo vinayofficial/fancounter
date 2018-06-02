@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../_services/login.service';
 import { Route } from '@angular/compiler/src/core';
 
 @Injectable({
@@ -8,17 +7,11 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class AuthService implements CanActivate {
 
-  constructor( private route:Router, private loginService:LoginService) { }
+  constructor( private route:Router) { }
 
   canActivate(){
-      let checkLogin = this.loginService.isLogin;
-      if(checkLogin){
-          this.route.navigate(['/video']);
-          return true;
-      }else{
-          this.route.navigate(['/signin']);
-          return false;
-      }
+      if(localStorage.getItem('authKey')) return true;
+      this.route.navigate(['/signin']); 
+      return false;
   }
-
 }
