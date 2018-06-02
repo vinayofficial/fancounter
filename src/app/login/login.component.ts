@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -20,10 +22,10 @@ export class LoginComponent implements OnInit {
        let userpassword = this.signIn.get('userPassword').value;
        this.storageKey = useremail;
         let user = {
-        email:useremail,
-        password:userpassword
-      }
-
+           email:useremail,
+           password:userpassword
+        }
+        
       this.localData = localStorage.getItem(this.storageKey); // string
       this.localData=JSON.parse(this.localData);  
       console.log(this.localData);
@@ -32,13 +34,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('currentUser',this.localData.name);
         this.msg="login Successfull";
       localStorage.setItem("currentUser",this.localData.name);
-
       }
       else{
         this.msg="Wrong credential";
       }
-
-       
 
   }
 
