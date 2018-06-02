@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { SigninComponent } from './signin/signin.component';
+import { AuthService } from './_auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SigninComponent
   ],
   imports: [
     HttpModule,
@@ -32,18 +35,19 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'search', pathMatch: 'full' },
+      { path: '', redirectTo: 'signin', pathMatch: 'full' },
       {path: 'home', component: HomeComponent},
       {path: 'youtube', component: YoutubeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'video/:videoid/', component: VideoComponent},
-      {path: 'video', component: VideoComponent},
+      {path: 'video', component: VideoComponent, canActivate:[AuthService]},
       {path: 'search', component: SearchResultsComponent},
+      {path: 'signin', component: SigninComponent}
     ])
 
   ],
-  providers: [YoutubeService],
+  providers: [YoutubeService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

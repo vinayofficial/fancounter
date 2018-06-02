@@ -20,25 +20,37 @@ export class LoginComponent implements OnInit {
   loginData(){
        let useremail = this.signIn.get('userEmail').value;
        let userpassword = this.signIn.get('userPassword').value;
-       this.storageKey = useremail;
-        let user = {
-        email:useremail,
-        password:userpassword
+
+      if(useremail !== '' && userpassword !== ''){
+        this.storageKey = useremail;
+            let user = {
+              email:useremail,
+              password:userpassword
+            }
+
+          this.localData = localStorage.getItem(this.storageKey); // string
+
+          if(this.localData){
+            this.localData=JSON.parse(this.localData);  
+            console.log(this.localData);
+            console.log(this.localData.email +" && "+ useremail +" && "+ this.localData.paswword +" == "+userpassword);
+            if(this.localData.email == useremail && this.localData.paswword == userpassword){
+              this.msg="login Successfull";
+            localStorage.setItem("currentUser",this.localData.name);
+            }
+            else{
+              this.msg="Wrong credential";
+            }
+        }else{
+          this.msg="No such storage key found";
+        }
+
+          
+      }else{
+        this.msg = 'Fields can not be empty.';
       }
 
-      this.localData = localStorage.getItem(this.storageKey); // string
-      this.localData=JSON.parse(this.localData);  
-      console.log(this.localData);
-      console.log(this.localData.email +" && "+ useremail +" && "+ this.localData.paswword +" == "+userpassword);
-      if(this.localData.email == useremail && this.localData.paswword == userpassword){
-        this.msg="login Successfull";
-      localStorage.setItem("currentUser",this.localData.name);
-      
-
-      }
-      else{
-        this.msg="Wrong credential";
-      }
+       
 
        
 
