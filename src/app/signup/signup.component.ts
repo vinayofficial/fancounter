@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
-import { allResolved } from 'q';
+// import { allResolved } from 'q';
 
 
 @Component({

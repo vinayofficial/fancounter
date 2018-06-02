@@ -37,8 +37,6 @@ export class LoginComponent implements OnInit {
         this.msg="Wrong credential";
       }
 
-       
-
   }
 
   constructor() { }
