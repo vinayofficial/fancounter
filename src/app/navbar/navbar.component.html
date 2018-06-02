@@ -5,7 +5,7 @@
         <a class="navbar-brand" routerLink="home">Fancounter</a>
         </div>
     </div>
-    <div class="col-md-6" style="margin-top:10px;" >
+    <div class="col-md-5" style="margin-top:10px;" >
         <form [formGroup]="searchForm" (ngSubmit)="searchData()">
             <input type="text" 
                    formControlName="inputKeys" 
@@ -13,7 +13,7 @@
                    placeholder="search something here"/>
         </form>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active">
             <a routerLink="home"> 
@@ -25,13 +25,9 @@
                     <i class="fa fa-home"></i> Watch
                 </a>
             </li>
-            <li routerLinkActive="active">
-                <a routerLink="login">
-                    <i class="fa fa-user"></i> Login
-                </a>
-            </li>
+        
       <li routerLinkActive="active" *ngIf="!checkLogin"> 
-          <a routerLink="profile">
+          <a routerLink="login">
               <i class="fa fa-user"></i> login
           </a>
         </li>

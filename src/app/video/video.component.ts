@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {YoutubeService} from '../_services/youtube.service'
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  styles: []
+  styles: [],
+  providers: [YoutubeService]
 })
 export class VideoComponent implements OnInit {
   videoid:string;
