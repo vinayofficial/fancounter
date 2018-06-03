@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8 col-lg-offset-2">
       <h2>Find a Channel</h2>
-      <form [formGroup]="youtubeForm" (ngSubmit)="showChannelData()">
+      <form [formGroup]="youtubeForm" (ngSubmit)="showvideoResults()">
         <div class="form-group">
             <div class="col-md-8">
                 <input  type="text" 
@@ -12,7 +12,17 @@
             </div>
             <button class="btn btn-primary" [disabled]="youtubeForm.invalid">Get Data</button>      
         </div>
+        <div>{{msg}}</div>
       </form>
     </div>
+    <div class="clearfix"></div>
+    <hr>
+
+      <div class="col-sm-3" *ngFor="let video of videoResults">
+        <a [routerLink]="['/video']" [queryParams]="{v: video.id.videoId }" > 
+          <img src="{{video.snippet.thumbnails.medium.url}}" class="img-responsive">
+          </a>
+          <h4>{{video.snippet.title}}</h4>
+        </div>
   </div>
 </div>

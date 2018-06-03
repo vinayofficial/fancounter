@@ -6,13 +6,11 @@ import { Http } from '@angular/http';
 })
 
 export class YoutubeService {
-
-  APIURL:string = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM&forUsername=vishAcademy&part=snippet,id&order=date&maxResults=20";
-
   constructor(private _http: Http) { }
 
-  // GetData
-  fetchData() {
-    return this._http.get(this.APIURL);
+  //Get Data
+  fetchData(KEYWORD){
+    let url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q="+KEYWORD+"&type=video&key=AIzaSyCx4qot3_1usvJv0Zxv0FCrdpONDILYSOM"
+    return this._http.get(url);
   }
 }
