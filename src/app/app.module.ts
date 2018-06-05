@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database'
 import { YoutubeService } from '../app/_services/youtube.service';
 import { AppComponent } from './app.component';
 import { YoutubeComponent } from './youtube/youtube.component';
@@ -16,6 +18,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SigninComponent } from './signin/signin.component';
 import { AuthService } from './_auth/auth.service';
 import { LoginService } from './_services/login.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { LoginService } from './_services/login.service';
     HttpModule,
     BrowserModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'signin', pathMatch: 'full' },

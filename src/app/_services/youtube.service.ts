@@ -16,10 +16,13 @@ export class YoutubeService {
   }
 
 
-  loginService(StorageKey){
-    
+  loginService(StorageKey){ 
     let key = localStorage
     return key;
+  }
+
+  testbase(){
+    return this._http.get('https://classroom-fanc.firebaseio.com/users.json');
   }
 
 }

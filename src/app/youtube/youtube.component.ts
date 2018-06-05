@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
@@ -20,7 +21,16 @@ export class YoutubeComponent implements OnInit {
   youtubeForm = new FormGroup({
     channelString: new FormControl('',Validators.required)
   })
-  constructor(private youtubeService:YoutubeService) { }
+  constructor(
+    private youtubeService:YoutubeService,
+    private _database:AngularFireDatabase
+  ) { 
+    _database.list('/person')
+      .valueChanges()
+      .subscribe(response => {
+        console.log(response);
+      })
+  }
 
   //show data 
   showvideoResults(){
@@ -42,6 +52,12 @@ export class YoutubeComponent implements OnInit {
 
   ngOnInit() {
     let KEYWORD = this.youtubeForm.get("channelString").value;
+
+    this.youtubeService.testbase().subscribe(response => {
+      console.log(response);
+    })
+
+
     this.youtubeService.fetchData(KEYWORD).subscribe((response) => {
       this.videoResults = response.json();
       this.videoResults = this.videoResults.items
@@ -56,5 +72,4 @@ export class YoutubeComponent implements OnInit {
         this.msg = "Here is your search result:";
     })
   }
-
 }
